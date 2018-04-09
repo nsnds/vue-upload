@@ -60,6 +60,14 @@ export default {
     minus (idx) {
       this.files.splice(idx, 1)
     }
+  },
+  watch: {
+    files: {
+      handler: function (n, o) {
+        this.$emit('changeFile', n)
+      },
+      deep: true
+    }
   }
 }
 </script>
@@ -79,12 +87,10 @@ export default {
     border-radius: 5px;
     border: 1px solid #e4e7ed;
     font-size: 14px;
-    outline:none;
-    transition: border 0.4s
+    text-indent: 5px;
   }
-  .upload-row input[type=text]:focus {
-    transition: border 0.4s;
-    border-color: #409eff;
+  .upload-row input[type=text]:hover {
+    cursor: not-allowed;
   }
   .upload-row label {
     vertical-align: middle;
@@ -96,6 +102,9 @@ export default {
     color: #409eff;
     display: inline-block;
   }
+  .upload-row label:hover {
+    cursor: pointer;
+  }
   .upload-row .btn {
     display: inline-block;
     width: 35px;
@@ -106,5 +115,8 @@ export default {
     border: 1px solid #e4e7ed;
     border-radius: 5px;
     line-height: 37px
+  }
+  .upload-row .btn:hover {
+    cursor: pointer;
   }
 </style>

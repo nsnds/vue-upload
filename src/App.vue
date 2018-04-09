@@ -12,7 +12,7 @@ export default {
   name: 'App',
   data () {
     return {
-      files: [{text: ''}]
+      files: [{text: '1.png'}]
     }
   },
   components: {
